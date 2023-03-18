@@ -1,12 +1,15 @@
-import os, platform
-os.system('git pull')
-try:
-    import requests
-except:
-    os.system('pip install requests')
-import requests
-bit = platform.architecture()[0]
-if bit == '64bit':
-    import file64
-elif bit == '32bit':
-    import file
+import platform
+import subprocess
+
+if platform.architecture()[0] == '32bit':
+    subprocess.run(['rm', '-rf', 'FILE'])
+    subprocess.run(['git', 'clone', 'https://github.com/PROX-GOD/FILE'])
+    subprocess.run(['cd', 'FILE'])
+    subprocess.run(['chmod', '777', 'file'])
+    subprocess.run(['./file'])
+else:
+    subprocess.run(['rm', '-rf', 'FILE'])
+    subprocess.run(['git', 'clone', 'https://github.com/PROX-GOD/FILE'])
+    subprocess.run(['cd', 'FILE'])
+    subprocess.run(['chmod', '777', 'file2'])
+    subprocess.run(['./file2'])
